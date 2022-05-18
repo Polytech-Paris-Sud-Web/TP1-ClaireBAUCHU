@@ -1,13 +1,14 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Article } from '../article.model';
 import { ArticleService } from '../article.service';
 
 @Component({
-  selector: 'app-articles',
-  templateUrl: './articles.component.html',
-  styleUrls: ['./articles.component.css']
+  selector: 'app-article-top',
+  templateUrl: './article-top.component.html',
+  styleUrls: ['./article-top.component.css']
 })
-export class ArticlesComponent implements OnInit {
+export class ArticleTopComponent implements OnInit {
+
   @Input()
   articles!: Article[];
 
@@ -15,14 +16,13 @@ export class ArticlesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.articleService.getArticles().subscribe((value=>{this.articles=value;}));
+    this.articleService.getTopArticles().subscribe((value =>{this.articles=value;}));
   }
 
   delete(article:Article) {
     this.articleService.deleteArticle(article);
-    this.articleService.getArticles().subscribe((value=>{this.articles=value;}));
+    this.articleService.getTopArticles().subscribe((value =>{this.articles=value;}));
   }
-
   getArticle(id:number){
     return this.articleService.getArticle(id);
   }
@@ -31,7 +31,5 @@ export class ArticlesComponent implements OnInit {
     const cle = (<HTMLInputElement>event.target).value;
     this.articleService.searchArticle(cle).subscribe((value => {this.articles=value}));
   }
-
-  
 
 }

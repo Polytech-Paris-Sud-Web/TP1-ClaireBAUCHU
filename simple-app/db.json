@@ -12,5 +12,18 @@
       "author": "hello",
       "id": 4
     }
+  ],
+
+  "authors": [
+    {
+      "id": 1,
+      "name": "Orangefire",
+      "biography": "je fais de l'angular"
+    },
+    {
+      "id": 2,
+      "name": "hello",
+      "biography": "je fais de l'angular2"
+    }
   ]
 }

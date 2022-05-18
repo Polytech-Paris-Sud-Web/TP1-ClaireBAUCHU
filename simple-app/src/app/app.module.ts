@@ -11,11 +11,16 @@ import { ArticleCreationComponent } from './article-creation/article-creation.co
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { ArticleViewComponent } from './article-view/article-view.component';
+import { AuthorComponent } from './author/author.component';
+import { ArticleTopComponent } from './article-top/article-top.component';
+
 
 const appRoutes: Routes = [
   { path: 'create', component: ArticleCreationComponent },
   { path: 'articles', component: ArticlesComponent },
+  { path: 'top10', component: ArticleTopComponent },
   { path: 'article/:id', component: ArticleViewComponent },
+  { path: 'author/:name', component: AuthorComponent},
   { path: '', component: ArticlesComponent },
 ]
 
@@ -25,7 +30,9 @@ const appRoutes: Routes = [
     ArticleComponent,
     ArticlesComponent,
     ArticleCreationComponent,
-    ArticleViewComponent
+    ArticleViewComponent,
+    AuthorComponent,
+    ArticleTopComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {enableTracing:true}),

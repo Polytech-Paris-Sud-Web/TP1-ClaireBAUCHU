@@ -29,4 +29,8 @@ export class ArticleComponent implements OnInit {
     this.router.navigate(["/article", this.article.id]);
   }
 
+  viewAuthor(){
+    this.router.navigate(["/author", this.article.author]);
+  }
+
 }

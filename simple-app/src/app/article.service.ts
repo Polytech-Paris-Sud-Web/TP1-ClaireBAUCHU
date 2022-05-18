@@ -32,4 +32,8 @@ export class ArticleService {
   public searchArticle(cle:string) : Observable<Article[]>{
     return this.httpClient.get<Article[]>(`http://localhost:3000/articles?q=${cle}`);
   }
+
+  public getTopArticles():Observable<Article[]>{
+    return this.httpClient.get<Article[]>("http://localhost:3000/articles?_page=1");
+  }
 }
